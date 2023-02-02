@@ -1,4 +1,5 @@
 import { Button } from '@components/Button';
+import { QrCodeIcon } from '@heroicons/react/24/outline';
 
 export const AuthButtons = () => {
   return (
@@ -7,9 +8,10 @@ export const AuthButtons = () => {
         variant="secondary"
         size="md"
         type="button"
-        className="hidden sm:inline-flex"
+        className="hidden sm:inline-flex sm:items-center sm:gap-1"
       >
-        Sign Up
+        <QrCodeIcon className="h-6 w-6" aria-hidden="true" />
+        Get App
       </Button>
       <Button
         variant="primary"

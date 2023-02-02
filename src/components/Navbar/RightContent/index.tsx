@@ -1,3 +1,5 @@
+import { AuthModal } from '@components/Modal/Auth';
+
 import { AuthButtons } from './AuthButtons';
 
 interface RightContentProps {
@@ -7,7 +9,7 @@ interface RightContentProps {
 export const RightContent = () => {
   return (
     <>
-      {/* <AuthModal /> */}
+      <AuthModal />
       <div className="flex items-center">
         <AuthButtons />
       </div>

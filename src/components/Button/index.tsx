@@ -27,11 +27,14 @@ const buttonClasses = cva(
           'text-white bg-blue-500 hover:bg-blue-400 transition-colors ease-in-out duration-200',
         secondary:
           'text-blue-500 border border-blue-500 bg-white hover:bg-[#F6F7F8] transition-colors ease-in-out duration-200',
+        tertiary:
+          'w-full justify-center border border-transparent bg-brand-100 font-medium text-white shadow-sm hover:bg-brand-100/80 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
       },
       size: {
         sm: '',
-        md: 'text-sm px-4 md:px-10 h-8',
+        md: 'text-sm px-4 md:px-8 h-8',
         lg: '',
+        tertiary: 'py-2 px-4 text-sm',
       },
     },
     /* defaultVariants: {
