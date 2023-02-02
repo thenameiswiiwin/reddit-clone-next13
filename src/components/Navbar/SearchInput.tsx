@@ -19,7 +19,7 @@ export const SearchInput = () => {
           name="email"
           id="email"
           placeholder="Search Reddit"
-          className="h-9 block w-full rounded-full border bg-[#F6F7F8] pl-10 text-sm font-light placeholder:text-gray-500 hover:border-blue-500 hover:bg-white focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500"
+          className="block h-9 w-full rounded-full border bg-[#F6F7F8] pl-10 text-sm font-light placeholder:text-gray-500 hover:border-blue-500 hover:bg-white focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500"
         />
       </div>
     </div>
