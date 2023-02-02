@@ -79,14 +79,14 @@ export const Login = () => {
                   className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   username
-                </a>{' '}
+                </a>
                 or{' '}
                 <a
                   href="#"
                   className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   password
-                </a>{' '}
+                </a>
                 ?
               </div>
             </div>
