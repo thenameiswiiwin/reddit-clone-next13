@@ -53,12 +53,13 @@ export const LoginForm = () => {
       <div className="flex items-center justify-between">
         <div className="text-xs">
           New to Reddit?{' '}
-          <a
-            href="#"
+          <button
+            type="button"
+            onClick={() => setAuthModalState({ open: true, vew: 'signup' })}
             className="font-bold text-blue-500 underline hover:text-blue-400"
           >
             Sign Up
-          </a>
+          </button>
         </div>
       </div>
     </form>

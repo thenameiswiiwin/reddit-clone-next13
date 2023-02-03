@@ -7,7 +7,7 @@ export const AuthButtons = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
 
   const handleModalOpen = () =>
-    setAuthModalState({ isOpen: true, view: 'login' });
+    setAuthModalState((prev) => ({ ...prev, isOpen: true }));
 
   return (
     <div className="ml-auto flex h-full items-center gap-2 md:gap-4">

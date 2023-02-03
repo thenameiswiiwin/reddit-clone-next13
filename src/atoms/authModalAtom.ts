@@ -2,7 +2,7 @@ import { atom } from 'recoil';
 
 export interface AuthModalState {
   isOpen: boolean;
-  view: 'login' | 'signup' | 'resetUsername' | 'resetPassword' | 'getApp';
+  view: 'login' | 'signup' | 'resetUsername' | 'resetPassword';
 }
 
 const defaultModalState: AuthModalState = {
