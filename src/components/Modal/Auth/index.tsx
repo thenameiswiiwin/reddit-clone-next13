@@ -2,6 +2,8 @@ import { authModalState } from '@atoms/authModalAtom';
 import { useRecoilState } from 'recoil';
 import { ModalWrapper } from '../ModalWrapper';
 import { Login } from './Login';
+import { ResetPassword } from './ResetPassword';
+import { ResetUsername } from './ResetUsername';
 import { Signup } from './Signup';
 
 export const AuthModal = () => {
@@ -16,10 +18,13 @@ export const AuthModal = () => {
 
   return (
     <ModalWrapper modalState={modalState} handleModalClose={handleModalClose}>
-      {modalState.view === 'login' ? (
-        <Login toggleView={toggleView} />
-      ) : (
-        <Signup toggleView={toggleView} />
+      {modalState.view === 'login' && <Login toggleView={toggleView} />}
+      {modalState.view === 'signup' && <Signup toggleView={toggleView} />}
+      {modalState.view === 'resetUsername' && (
+        <ResetUsername toggleView={toggleView} />
+      )}
+      {modalState.view === 'resetPassword' && (
+        <ResetPassword toggleView={toggleView} />
       )}
     </ModalWrapper>
   );

@@ -37,10 +37,10 @@ const buttonClasses = cva(
         tertiary: 'py-2 px-4 text-sm',
       },
     },
-    /* defaultVariants: {
-    intent: 'primary',
-    size: 'md',
-  }, */
+    defaultVariants: {
+      variant: 'primary',
+      size: 'md',
+    },
   }
 );
 

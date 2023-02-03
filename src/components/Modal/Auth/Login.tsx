@@ -1,32 +1,34 @@
 import { Button } from '@components/Button';
-import { OAuthButtons } from '../OAuthButtons';
+import Link from 'next/link';
+import { FormInput } from './FormInput';
+import { OAuthButtons } from './OAuthButtons';
 
-interface SignupProps {
+interface LoginProps {
   toggleView: (view: string) => void;
 }
 
-export const Signup = ({ toggleView }: SignupProps) => {
+export const Login = ({ toggleView }: LoginProps) => {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-xl font-medium">Sign Up</h2>
+          <h2 className="mt-6 text-xl font-medium">Log In</h2>
           <p className="mt-2 text-xs text-gray-600">
             By continuing, you agree are setting up a Reddit account and agree
             to our{' '}
-            <a
-              href="#"
+            <Link
+              href="https://www.redditinc.com/policies/user-agreement"
               className="font-medium text-blue-500 hover:text-blue-400"
             >
               User Agreement
-            </a>{' '}
+            </Link>{' '}
             and{' '}
-            <a
-              href="#"
+            <Link
+              href="https://www.reddit.com/policies/privacy-policy"
               className="font-medium text-blue-500 hover:text-blue-400"
             >
-              privacy Policy Agreement
-            </a>
+              Privacy Policy
+            </Link>
           </p>
         </div>
 
@@ -47,16 +49,35 @@ export const Signup = ({ toggleView }: SignupProps) => {
           </div>
 
           <form className="space-y-6" action="#" method="POST">
-            <div className="mt-5">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Email"
-                autoComplete="email"
-                required
-                className="block w-full appearance-none rounded-full border border-gray-300/0 bg-gray-100 px-4 py-3 shadow-sm placeholder:font-semibold placeholder:text-gray-500 hover:border-gray-300/100 focus:border-blue-500 focus:outline-none focus:ring-blue-500 sm:text-sm"
-              />
+            <FormInput
+              name="email"
+              autoComplete="email"
+              placeholder="Username"
+            />
+            <FormInput
+              name="password"
+              autoComplete="current-password"
+              placeholder="Password"
+            />
+
+            <div className="flex items-center justify-between">
+              <div className="text-xs">
+                Forget your{' '}
+                <button
+                  onClick={() => toggleView('resetUsername')}
+                  className="font-bold text-blue-500 underline hover:text-blue-400"
+                >
+                  username
+                </button>{' '}
+                or{' '}
+                <button
+                  onClick={() => toggleView('resetPassword')}
+                  className="font-bold text-blue-500 underline hover:text-blue-400"
+                >
+                  password
+                </button>
+                ?
+              </div>
             </div>
 
             <Button type="submit" variant="tertiary" size="tertiary">
@@ -65,13 +86,13 @@ export const Signup = ({ toggleView }: SignupProps) => {
 
             <div className="flex items-center justify-between">
               <div className="text-xs">
-                Already a redditor?{' '}
+                New to Reddit?{' '}
                 <button
                   type="button"
-                  onClick={() => toggleView('login')}
+                  onClick={() => toggleView('signup')}
                   className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
-                  Log In
+                  Sign Up
                 </button>
               </div>
             </div>
