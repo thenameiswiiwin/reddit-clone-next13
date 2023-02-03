@@ -21,6 +21,7 @@
     ],
     "paths": {
       "@assets/*": ["./src/assets/*"],
+      "@atoms/*": ["./src/atoms/*"],
       "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"],
       "@styles/*": ["./src/styles/*"]
