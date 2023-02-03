@@ -1,5 +1,9 @@
 import { Button } from '@components/Button';
 
+interface LoginFormProps {
+  toggleView: (view: string) => void;
+}
+
 const FormInputs = [
   { name: 'email', autoComplete: 'email', placeholder: 'Username' },
   {
@@ -9,7 +13,7 @@ const FormInputs = [
   },
 ];
 
-export const LoginForm = () => {
+export const LoginForm = ({ toggleView }: LoginFormProps) => {
   return (
     <form className="space-y-6" action="#" method="POST">
       {FormInputs.map((FormInput) => (
@@ -55,7 +59,7 @@ export const LoginForm = () => {
           New to Reddit?{' '}
           <button
             type="button"
-            onClick={() => setAuthModalState({ open: true, vew: 'signup' })}
+            onClick={() => toggleView('signup')}
             className="font-bold text-blue-500 underline hover:text-blue-400"
           >
             Sign Up

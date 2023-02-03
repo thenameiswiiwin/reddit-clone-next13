@@ -1,7 +1,11 @@
 import { OAuthButtons } from '../OAuthButtons';
 import { LoginForm } from './LoginForm';
 
-export const Login = () => {
+interface LoginProps {
+  toggleView: (view: string) => void;
+}
+
+export const Login = ({ toggleView }: LoginProps) => {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
@@ -42,7 +46,7 @@ export const Login = () => {
             </div>
           </div>
 
-          <LoginForm />
+          <LoginForm toggleView={toggleView} />
         </div>
       </div>
     </>

@@ -3,19 +3,19 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
-import { useRecoilState } from 'recoil';
-import { authModalState } from '@atoms/authModalAtom';
+import { AuthModalState } from '@atoms/authModalAtom';
 
 interface ModalWrapperProps {
+  modalState: AuthModalState;
+  handleModalClose: () => void;
   children: React.ReactNode;
 }
 
-export const ModalWrapper = ({ children }: ModalWrapperProps) => {
-  const [modalState, setModalState] = useRecoilState(authModalState);
-
-  const handleModalClose = () =>
-    setModalState((prev) => ({ ...prev, isOpen: false }));
-
+export const ModalWrapper = ({
+  modalState,
+  handleModalClose,
+  children,
+}: ModalWrapperProps) => {
   return (
     <Transition.Root show={modalState.isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={handleModalClose}>

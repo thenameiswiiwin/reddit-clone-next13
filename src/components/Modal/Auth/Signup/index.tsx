@@ -1,11 +1,11 @@
-import { authModalState } from '@atoms/authModalAtom';
 import { Button } from '@components/Button';
-import { useSetRecoilState } from 'recoil';
 import { OAuthButtons } from '../OAuthButtons';
 
-export const Signup = () => {
-  const setAuthModalState = useSetRecoilState(authModalState);
+interface SignupProps {
+  toggleView: (view: string) => void;
+}
 
+export const Signup = ({ toggleView }: SignupProps) => {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
@@ -68,9 +68,7 @@ export const Signup = () => {
                 Already a redditor?{' '}
                 <button
                   type="button"
-                  onClick={() =>
-                    setAuthModalState({ open: true, view: 'login' })
-                  }
+                  onClick={() => toggleView('login')}
                   className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   Log In
