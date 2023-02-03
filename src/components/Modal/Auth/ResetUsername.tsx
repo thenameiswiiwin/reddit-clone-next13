@@ -1,5 +1,5 @@
 import { Button } from '@components/Button';
-import Link from 'next/link';
+
 import { FormInput } from './FormInput';
 
 interface ResetUsernameProps {
@@ -10,7 +10,7 @@ export const ResetUsername = ({ toggleView }: ResetUsernameProps) => {
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md space-y-2">
+        <div className="space-y-2 sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="mt-6 text-xl font-medium">Recover your username</h2>
           <p className="text-xs text-gray-600">
             Tell us the email address associated with your Reddit account, and
@@ -28,32 +28,35 @@ export const ResetUsername = ({ toggleView }: ResetUsernameProps) => {
 
             <div className="flex items-center justify-between">
               <div className="text-xs">
-                Don't have an email or need assistance logging in?{' '}
-                <Link
+                Don&#39;t have an email or need assistance logging in?{' '}
+                <Button
                   href="https://reddithelp.com/hc/en-us/sections/360008917491-Account-Security"
-                  className="font-bold text-blue-500 underline hover:text-blue-400"
+                  variant="forum"
+                  size="forum"
                 >
                   Get Help
-                </Link>
+                </Button>
               </div>
             </div>
 
-            <div className="text-xs flex gap-1">
-              <button
+            <div className="flex gap-1 text-xs">
+              <Button
+                variant="forum"
+                size="forum"
                 type="button"
                 onClick={() => toggleView('signup')}
-                className="font-bold text-blue-500 underline hover:text-blue-400"
               >
                 Sign Up
-              </button>
-              <span className="text-blue-500 font-bold">•</span>
-              <button
+              </Button>
+              <span className="font-bold text-blue-500">&#8226;</span>
+              <Button
+                variant="forum"
+                size="forum"
                 type="button"
                 onClick={() => toggleView('login')}
-                className="font-bold text-blue-500 underline hover:text-blue-400"
               >
                 Log In
-              </button>
+              </Button>
             </div>
           </form>
         </div>

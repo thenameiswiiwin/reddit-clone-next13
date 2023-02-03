@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  body {
     @apply bg-slate-200 font-sans text-black;
   }
 }

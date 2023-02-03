@@ -6,7 +6,7 @@ import { SearchInput } from './SearchInput';
 
 export const Navbar = () => {
   return (
-    <div className="flex h-11 items-center justify-between gap-5 bg-white px-1.5 py-3">
+    <div className="flex h-11 items-center justify-between gap-5 bg-white px-5 py-6">
       <Link href="/">
         <div className="flex items-center">
           <Image

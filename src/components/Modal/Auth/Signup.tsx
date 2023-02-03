@@ -1,4 +1,6 @@
 import { Button } from '@components/Button';
+import Link from 'next/link';
+
 import { FormInput } from './FormInput';
 import { OAuthButtons } from './OAuthButtons';
 
@@ -15,19 +17,19 @@ export const Signup = ({ toggleView }: SignupProps) => {
           <p className="mt-2 text-xs text-gray-600">
             By continuing, you agree are setting up a Reddit account and agree
             to our{' '}
-            <a
-              href="#"
+            <Link
+              href="https://www.redditinc.com/policies/user-agreement"
               className="font-medium text-blue-500 hover:text-blue-400"
             >
               User Agreement
-            </a>{' '}
+            </Link>{' '}
             and{' '}
-            <a
-              href="#"
+            <Link
+              href="https://www.reddit.com/policies/privacy-policy"
               className="font-medium text-blue-500 hover:text-blue-400"
             >
-              privacy Policy Agreement
-            </a>
+              Privacy Policy
+            </Link>
           </p>
         </div>
 
@@ -57,13 +59,14 @@ export const Signup = ({ toggleView }: SignupProps) => {
             <div className="flex items-center justify-between">
               <div className="text-xs">
                 Already a redditor?{' '}
-                <button
+                <Button
+                  variant="forum"
+                  size="forum"
                   type="button"
                   onClick={() => toggleView('login')}
-                  className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   Log In
-                </button>
+                </Button>
               </div>
             </div>
           </form>

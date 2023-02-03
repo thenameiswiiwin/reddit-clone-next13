@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority';
 import Link from 'next/link';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react';
 
-type buttonBaseProps = VariantProps<typeof buttonClasses> & {
+type ButtonBaseProps = VariantProps<typeof buttonClasses> & {
   children: React.ReactNode;
 };
 
@@ -15,7 +15,7 @@ interface ButtonAsButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: never;
 }
 
-type ButtonProps = buttonBaseProps &
+type ButtonProps = ButtonBaseProps &
   (ButtonAsAnchorProps | ButtonAsButtonProps);
 
 const buttonClasses = cva(
@@ -29,12 +29,17 @@ const buttonClasses = cva(
           'text-blue-500 border border-blue-500 bg-white hover:bg-[#F6F7F8] transition-colors ease-in-out duration-200',
         tertiary:
           'w-full justify-center border border-transparent bg-brand-100 font-medium text-white shadow-sm hover:bg-brand-100/80 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
+        forum:
+          'font-bold text-blue-500 underline hover:text-blue-400 rounded-none',
+        oAuth:
+          'w-full justify-center rounded-md border border-gray-300 bg-white font-medium text-gray-500 shadow-sm hover:bg-gray-50',
       },
       size: {
         sm: '',
         md: 'text-sm px-4 md:px-8 h-8',
         lg: '',
         tertiary: 'py-2 px-4 text-sm',
+        forum: '',
       },
     },
     defaultVariants: {

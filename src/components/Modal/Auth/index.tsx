@@ -1,5 +1,6 @@
 import { authModalState } from '@atoms/authModalAtom';
 import { useRecoilState } from 'recoil';
+
 import { ModalWrapper } from '../ModalWrapper';
 import { Login } from './Login';
 import { ResetPassword } from './ResetPassword';

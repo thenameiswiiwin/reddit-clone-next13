@@ -1,9 +1,5 @@
 import { MagnifyingGlassIcon } from '@heroicons//react/20/solid';
 
-interface SearchInputProps {
-  /* user */
-}
-
 export const SearchInput = () => {
   return (
     <div className="grow">

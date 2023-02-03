@@ -1,5 +1,5 @@
 import { Button } from '@components/Button';
-import Link from 'next/link';
+
 import { FormInput } from './FormInput';
 import { OAuthButtons } from './OAuthButtons';
 
@@ -16,19 +16,21 @@ export const Login = ({ toggleView }: LoginProps) => {
           <p className="mt-2 text-xs text-gray-600">
             By continuing, you agree are setting up a Reddit account and agree
             to our{' '}
-            <Link
+            <Button
               href="https://www.redditinc.com/policies/user-agreement"
-              className="font-medium text-blue-500 hover:text-blue-400"
+              variant="forum"
+              size="forum"
             >
               User Agreement
-            </Link>{' '}
+            </Button>{' '}
             and{' '}
-            <Link
+            <Button
               href="https://www.reddit.com/policies/privacy-policy"
-              className="font-medium text-blue-500 hover:text-blue-400"
+              variant="forum"
+              size="forum"
             >
               Privacy Policy
-            </Link>
+            </Button>
           </p>
         </div>
 
@@ -63,19 +65,23 @@ export const Login = ({ toggleView }: LoginProps) => {
             <div className="flex items-center justify-between">
               <div className="text-xs">
                 Forget your{' '}
-                <button
+                <Button
+                  variant="forum"
+                  size="forum"
+                  type="button"
                   onClick={() => toggleView('resetUsername')}
-                  className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   username
-                </button>{' '}
+                </Button>{' '}
                 or{' '}
-                <button
+                <Button
+                  variant="forum"
+                  size="forum"
+                  type="button"
                   onClick={() => toggleView('resetPassword')}
-                  className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   password
-                </button>
+                </Button>
                 ?
               </div>
             </div>
@@ -87,13 +93,14 @@ export const Login = ({ toggleView }: LoginProps) => {
             <div className="flex items-center justify-between">
               <div className="text-xs">
                 New to Reddit?{' '}
-                <button
+                <Button
+                  variant="forum"
+                  size="forum"
                   type="button"
                   onClick={() => toggleView('signup')}
-                  className="font-bold text-blue-500 underline hover:text-blue-400"
                 >
                   Sign Up
-                </button>
+                </Button>
               </div>
             </div>
           </form>
