@@ -20,7 +20,12 @@ export const ResetUsername = ({ toggleView }: ResetUsernameProps) => {
 
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <form className="space-y-6" action="#" method="POST">
-            <FormInput name="email" autoComplete="email" placeholder="Email" />
+            <FormInput
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="Email"
+            />
 
             <Button type="submit" variant="tertiary" size="tertiary">
               Email Me

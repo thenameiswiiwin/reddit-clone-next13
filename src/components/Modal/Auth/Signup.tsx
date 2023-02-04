@@ -1,5 +1,9 @@
 import { Button } from '@components/Button';
+import { Spinner } from '@components/icons/Spinner';
+import { auth } from '@firebase/clientApp';
 import Link from 'next/link';
+import { useState } from 'react';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 import { FormInput } from './FormInput';
 import { OAuthButtons } from './OAuthButtons';
@@ -9,6 +13,35 @@ interface SignupProps {
 }
 
 export const Signup = ({ toggleView }: SignupProps) => {
+  const [form, setForm] = useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const [error, setError] = useState('');
+  const [createUserWithEmailAndPassword, _, loading, authError] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (error) setError('');
+    if (form.password !== form.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    createUserWithEmailAndPassword(form.email, form.password);
+  };
+
+  const onChange = ({
+    target: { name, value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <>
       <div className="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8">
@@ -49,11 +82,31 @@ export const Signup = ({ toggleView }: SignupProps) => {
             </div>
           </div>
 
-          <form className="space-y-6" action="#" method="POST">
-            <FormInput name="email" autoComplete="email" placeholder="Email" />
-
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <FormInput
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="Email"
+              onChange={onChange}
+            />
+            <FormInput
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={onChange}
+            />
+            <FormInput
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm Password"
+              onChange={onChange}
+            />
+            {error && (
+              <div className="text-center text-xs text-red-500">{error}</div>
+            )}
             <Button type="submit" variant="tertiary" size="tertiary">
-              Log In
+              {loading ? <Spinner /> : 'Sign Up'}
             </Button>
 
             <div className="flex items-center justify-between">

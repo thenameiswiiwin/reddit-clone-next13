@@ -53,11 +53,13 @@ export const Login = ({ toggleView }: LoginProps) => {
           <form className="space-y-6" action="#" method="POST">
             <FormInput
               name="email"
+              type="email"
               autoComplete="email"
               placeholder="Username"
             />
             <FormInput
               name="password"
+              type="password"
               autoComplete="current-password"
               placeholder="Password"
             />

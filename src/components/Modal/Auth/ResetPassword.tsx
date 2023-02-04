@@ -24,10 +24,16 @@ export const ResetPassword = ({ toggleView }: ResetPasswordProps) => {
           <form className="space-y-6" action="#" method="POST">
             <FormInput
               name="username"
+              type="username"
               autoComplete="username"
               placeholder="Username"
             />
-            <FormInput name="email" autoComplete="email" placeholder="Email" />
+            <FormInput
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder="Email"
+            />
 
             <div className="flex items-center justify-between">
               <div className="text-xs">
