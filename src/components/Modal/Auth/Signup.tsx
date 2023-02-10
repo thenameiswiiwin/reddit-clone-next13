@@ -1,6 +1,7 @@
 import { Button } from '@components/Button';
 import { Spinner } from '@components/icons/Spinner';
 import { auth } from '@firebase/clientApp';
+import { FIREBASE_ERRORS } from '@firebase/errors';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -13,30 +14,30 @@ interface SignupProps {
 }
 
 export const Signup = ({ toggleView }: SignupProps) => {
-  const [form, setForm] = useState({
+  const [signUpForm, setSignUpForm] = useState({
     email: '',
     password: '',
     confirmPassword: '',
   });
   const [error, setError] = useState('');
-  const [createUserWithEmailAndPassword, _, loading, authError] =
+  const [createUserWithEmailAndPassword, user, loading, userError] =
     useCreateUserWithEmailAndPassword(auth);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (error) setError('');
-    if (form.password !== form.confirmPassword) {
+    if (signUpForm.password !== signUpForm.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
 
-    createUserWithEmailAndPassword(form.email, form.password);
+    createUserWithEmailAndPassword(signUpForm.email, signUpForm.password);
   };
 
   const onChange = ({
     target: { name, value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setForm((prev) => ({
+    setSignUpForm((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -102,9 +103,12 @@ export const Signup = ({ toggleView }: SignupProps) => {
               placeholder="Confirm Password"
               onChange={onChange}
             />
-            {error && (
-              <div className="text-center text-xs text-red-500">{error}</div>
-            )}
+            <div className="text-center text-sm text-red-500">
+              {error ||
+                FIREBASE_ERRORS[
+                  userError?.message as keyof typeof FIREBASE_ERRORS
+                ]}
+            </div>
             <Button type="submit" variant="tertiary" size="tertiary">
               {loading ? <Spinner /> : 'Sign Up'}
             </Button>
